@@ -36,9 +36,7 @@ Application.main()
 ↓  
 InputView.inputMoney()  
 ↓  
-LottoGenerator.generateLottos(money)  
-↓  
-구매한 로또 번호 출력  
+LottoGenerator.generateLottos(money)
 ↓  
 InputView.inputWinningNumber()  
 InputView.inputBonusNumber()  
