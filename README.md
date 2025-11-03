@@ -32,38 +32,38 @@
 ---
 ## ⚙️ 작동 흐름 (Flow)
 
-Application.main()
-↓
-InputView.inputMoney()
-↓
-LottoGenerator.generateLottos(money)
-↓
-구매한 로또 번호 출력
-↓
-InputView.inputWinningNumber()
-InputView.inputBonusNumber()
-↓
-LottoResult.evaluate(lottos, winning, bonus)
-↓
-LottoResult.calculateProfitRate(...)
-↓
-OutputView.outputResult(...)
+Application.main()  
+↓  
+InputView.inputMoney()  
+↓  
+LottoGenerator.generateLottos(money)  
+↓  
+구매한 로또 번호 출력  
+↓  
+InputView.inputWinningNumber()  
+InputView.inputBonusNumber()  
+↓  
+LottoResult.evaluate(lottos, winning, bonus)  
+↓  
+LottoResult.calculateProfitRate(...)  
+↓  
+OutputView.outputResult(...)  
 ---
 ## 📁 디렉토리 구조
-src
-└─ main
-└─ java
-└─ lotto
-├─ Application.java
-├─ Lotto.java
-│
-├─ domain
-│ └─ LottoRank.java
-│
-├─ service
-│ ├─ LottoGenerator.java
-│ └─ LottoResult.java
-│
-└─ view
-├─ InputView.java
-└─ OutputView.java
+src  
+└─ main  
+└─ java  
+└─ lotto  
+├─ Application.java  
+├─ Lotto.java  
+│  
+├─ domain  
+│ └─ LottoRank.java  
+│  
+├─ service  
+│ ├─ LottoGenerator.java  
+│ └─ LottoResult.java  
+│  
+└─ view  
+├─ InputView.java  
+└─ OutputView.java  
