@@ -9,6 +9,7 @@ import java.util.List;
 public class LottoGenerator {
     public static List<Lotto> generateLottos(int money) {
         int cnt = money / 1000;
+        System.out.printf("%d개를 구매했습니다.%n", cnt);
         List<Lotto> lottos = new ArrayList<Lotto>();
 
         for (int i = 0; i < cnt; i++) {

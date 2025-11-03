@@ -1,6 +1,7 @@
 package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import lotto.Lotto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,5 +62,55 @@ class InputViewTest {
         assertThatThrownBy(() -> InputView.inputMoney())
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 구입 금액은 1000원 단위로 입력해야 합니다.");
+    }
+
+    @Test
+    void inputWinningNumber_정상입력() {
+        // given
+        String fakeInput = "1,2,3,4,5,6\n";
+        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
+
+        // when
+        Lotto winning = InputView.inputWinningNumber();
+
+        // then
+        assertThat(winning.getNumbers()).containsExactly(1, 2, 3, 4, 5, 6);
+    }
+
+    @Test
+    void inputWinningNumber_숫자_아니면_예외() {
+        // given
+        String fakeInput = "1,2,삼,4,5,6\n";
+        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
+
+        // when // then
+        assertThatThrownBy(InputView::inputWinningNumber)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageStartingWith("[ERROR]");
+    }
+
+    @Test
+    void inputBonusNumber_정상입력() {
+        // given
+        String fakeInput = "7\n";
+        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
+
+        // when
+        int bonus = InputView.inputBonusNumber();
+
+        // then
+        assertThat(bonus).isEqualTo(7);
+    }
+
+    @Test
+    void inputBonusNumber_숫자_아니면_예외() {
+        // given
+        String fakeInput = "abc\n";
+        System.setIn(new ByteArrayInputStream(fakeInput.getBytes(StandardCharsets.UTF_8)));
+
+        // when // then
+        assertThatThrownBy(InputView::inputBonusNumber)
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageStartingWith("[ERROR]");
     }
 }
