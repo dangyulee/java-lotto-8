@@ -36,7 +36,7 @@ Application.main()
 ↓  
 InputView.inputMoney()  
 ↓  
-LottoGenerator.generateLottos(money)
+LottoGenerator.generateLottos(money)  
 ↓  
 InputView.inputWinningNumber()  
 InputView.inputBonusNumber()  
